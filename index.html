@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+            <div class="shadow mb-3">
+                <div class="jumbotron p-2">
+                    
+                    <p class='text-right'><a href='{{ url_for("tambah") }}' class='btn btn-success '>+Tambah Data</a></p>
+                     <table id="data" class="table table-hover table-bordered table-light text-center">
+                        <thead class="table-dark">
+                        <th>NO</th>
+                        <th>Blok</th>
+                        <th>No. Dalam Blok</th>
+                        <th>Nomor Objek Pajak</th>
+                        <th>Nama Wajib Pajak</th>
+                        <th>AKSI</th>
+                        
+                        </thead>
+                        <tbody>
+                        {% for row in pbb %}
+                        <tr>
+                            <td>{{loop.index}}<input type="hidden"  name="nik" value="{{row.4}}"></td>
+                            <td>{{row.1}}</td>
+                            <td>{{row.2}}</td>
+                            <td>{{row.3}}</td>
+                            <td>{{row.4}}</td>
+                            <td><a href='/lihatop/{{row.5}}' class='btn btn-warning'>Lihat</a>
+                                <a href='/hapus/{{row.5}}' class='btn btn-danger' onclick='return confirm("Apakah Anda Yakin?")'>Delete</a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+{% block scripts %}
+   	<script>
+   		$(document).ready(function () {
+   		$('#data').DataTable();
+   			});
+	</script>
+{% endblock %}
+{% endblock %}
+

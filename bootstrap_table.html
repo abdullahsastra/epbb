@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% include "header.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col md-12">
+          <div class="shadow mb-3">
+              <div class="jumbotron p-2">
+  <table id="data" class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>NAMA</th>
+        <th>DESIL</th>
+        <th>ALAMAT</th>
+        <th>BPNT</th>
+        <th>PKH</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in jmlpenduduk %}
+        <tr>
+          <td>{{ row.4}}</td>
+          <td>{{ row.0}}</td>
+          <td>{{ row.1 }}</td>
+          <td>{{ row.19  }}</td>
+          <td>{{ row.22 }}</td>
+
+        </tr>
+      {% endfor %}
+    </tbody>
+    
+  </table>
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+    {% block scripts %}
+    	<script>
+    		$(document).ready(function () {
+      		$('#data').DataTable({
+        			columns: [
+          			null,
+          			{searchable: false},
+          			{orderable: false, searchable: false},
+          			{orderable: false, searchable: false},
+          			null],
+      			});
+    			});
+  		</script>
+    {% endblock %}
+    </div></div></div></div></div>
+{% endblock %}
+

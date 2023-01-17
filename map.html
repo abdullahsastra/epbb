@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sin - Dus</title>
+    
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='css/maps.css') }}" />
+    <script>
+   function initialize() {
+        var propertiPeta = {
+            center:new google.maps.LatLng(-7.086543718948775, 109.49101802321069),
+            zoom:9,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        
+        var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+        
+        // membuat Marker
+        var marker=new google.maps.Marker({
+            position: new google.maps.LatLng(-7.086543718948775, 109.49101802321069),
+            map: peta,
+            animation: google.maps.Animation.BOUNCE
+        });
+
+        }
+
+// event jendela di-load  
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+  
+
+</head>
+<body onload="initialize()">
+                                                             
+                    
+    <h1>Letak objek pajak</h1>
+    <p>Peta lokasi objek pajak</p>
+    
+    <!-- Elemen yang akan menjadi kontainer peta -->
+    <div id="googleMap"style="width:70%;height:500px"></div>
+
+        <div id="newcrimeform">
+        <h2>Masukkan Lokasi</h2>
+        <form action="/submitop" method="POST">
+            <label for="category">Kategori</label>
+            <select name="category" id="category">
+                <option value="sawah">Tanah Sawah</option>
+                <option value="darat">Tanah Darat</option>
+            </select>
+            <label for="date">Tanggal</label>
+            <input name="date" id="date" type="date">
+            <label for="latitude">Latitude</label>
+            <input name="latitude" id="latitude" type="text">
+            <label for="longitude">Longitude</label>
+            <input name="longitude" id="longitude" type="text">
+            <label for="description">Keterangan</label>
+            <textarea name="description" id="description" placeholder="keterangan objek pajak"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+          
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+                   
+        
+            
+                <div class="col-xl-8 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-success">Data Objek Pajak</h6>
+                        </div>
+                        <div class="card-body py-0">
+                             <table class="table table-hover table-bordered table-light">
+                                <thead class="table-dark">
+                                    <th>NO</th>
+                                    <th>Blok</th>
+                                    <th>No.Blok</th>
+                                    <th>Nomor Objek Pajak</th>
+                                    <th>Wajib Pajak</th>
+                                </thead>
+                                <tbody>
+                                {% for row in pbb %}
+                                <tr>
+                                    <td>{{loop.index}}<input type="hidden"  name="wp" value="{{row.1}}"></td>
+                                    <td>{{row.7}}</td>
+                                    <td>{{row.2}}</td>
+                                    <td>{{row.3}}</td>
+                                    <td>{{row.4}}</td>
+                                </tr>
+                                {%endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+{% endblock %}
+

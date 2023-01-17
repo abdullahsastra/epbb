@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-2 text-gray-800">Input SPPT</h1><p class='text-right'><a href='{{ url_for("index") }}' class='btn btn-primary '>Kembali ke halaman awal</a></p>
+      
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+      
+      <!-- Pie Chart -->
+      <div class="col-xl-12 col-lg-5">
+        <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          
+          <!-- Card Body -->
+          <div class="modal-body">
+
+      <form action="/tambah" method="POST">
+
+
+         <div class="form-group">
+
+            <label>Kelas :</label>
+            <input type="text" class="form-control" name="kelas" required="1">
+
+
+         </div>
+
+         <div class="form-group">
+          <label>Blok :</label>
+          <input type="number" class="form-control" name="blok" required="1">
+         </div>
+         <div class="form-group">
+          <label>Nomor dalam Blok :</label>
+          <input type="text" class="form-control" name="no" required="1">
+         </div>
+         <div class="form-group">
+          <label>Nomor Objek Pajak :</label>
+          <input type="text" class="form-control" name="nop" required="1">
+         </div>
+          <div class="form-group">
+
+
+            <label>Nama Wajib Pajak :</label>
+            <input type="text" class="form-control" name="wp" required="1">
+
+
+         </div>
+
+
+          <div class="form-group">
+
+
+            <label>NIK Wajib Pajak :</label>
+            <input type="text" class="form-control" name="nik" required="1">
+
+
+         </div>
+
+         
+         <div class="form-group">
+
+
+            <button class="btn btn-primary" type="submit">Simpan Data</button>
+            
+
+
+         </div>
+
+
+      </form>
+
+
+   </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- End of Main Content -->
+
+{% endblock %}

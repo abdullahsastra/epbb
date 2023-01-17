@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4 col-lg-5">
+            <div class="jumbotron p-3">
+                <div class="card shadow mb-4">
+                <form method='POST' action=''>
+                    <div class='form-group'>
+                      <label>NIK Wajib Pajak</label>
+                      <input type='text' name='nop' required class='form-control' value='{{data.4}}'>
+                    </div>
+                    <div class='form-group'>
+                      <label>Nama Wajib Pajak</label>
+                      <input type='text' name='wp' required class='form-control' value='{{data.5}}'>
+                    </div>
+                    <div class='form-group'>
+                        <label>Jumlah Objek Pajak</label>
+                        <input type='text' name='blok' required class='form-control' value='{{jumlah.1}}'>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </div>
+</div> 
+                <div class="col-xl-12 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Data Letter-C</h6>
+                        </div>
+                        <div class="card-body py-0">
+                             <table class="table table-hover table-bordered table-light text-center">
+                                <thead class="table-dark ">
+                                <th>NO</th>
+                                <th>Blok</th>
+                                <th>No. Dalam Blok</th>
+                                <th>Nomor Objek Pajak</th>
+                                <th>Nama Wajib Pajak</th>
+                                <th>Keterangan</th>
+                                
+                                </thead>
+                                <tbody>
+                                {% for row in pbb %}
+                                <tr>
+                                    <td>{{loop.index}}<input type="hidden"  name="nik" value="{{row.4}}"></td>
+                                    <td>{{row.1}}</td>
+                                    <td>{{row.2}}</td>
+                                    <td>{{row.3}}</td>
+                                    <td>{{row.5}}</td>
+                                    <td>-->><<--</td>
+                                </tr>
+                                {%endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+

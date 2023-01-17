@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %} SINDUS {% endblock %}
+
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="card shadow mb-3">
+        <nav class="rounded navbar navbar-expand-lg bg-light">
+            <ul class="navbar bg-body-tertiary">
+                <div class="container">                
+                    <img src="{{url_for("static", filename='img/sindus.png')}}" alt="Bootstrap" width="45" height="40"></a>
+                </div>
+            </ul>
+            
+        </nav>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{url_for('index')}}"><i class="fa fa-home me-2"></i>BERANDA</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{url_for('penduduk')}}"><i class="fa fa-institution me-2"></i>KEPENDUDUKAN</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{url_for('index')}}"><i class="fa fa-globe me-2"></i>PAJAK BUMI DAN BANGUNAN</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href=""><i class="fa fa-user-circle me-2"></i>TENTANG</a>
+            </li>
+        </ul> 
+    </div>
+
+</div>
+
+
+
+          
+{% endblock %}

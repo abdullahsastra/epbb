@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% include "header.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col md-12">
+          <div class="shadow mb-3">
+              <div class="jumbotron p-2">
+  <table id="data" class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>NO</th>
+        <th>NOP</th>
+        <th>NAMA</th>
+        <th>ALAMAT</th>
+        <th>NIK</th>
+        <th>BLOK</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in datanya %}
+        <tr>
+            <td>{{ loop.index }}</td>
+          <td>{{ row.0}}</td>
+          <td>{{ row.1}}</td>
+          <td>{{ row.3 }}</td>
+          <td>{{ row.5  }}</td>
+          <td>{{ row.7 }}</td>
+
+        </tr>
+      {% endfor %}
+    </tbody>
+    
+  </table>
+ 
+    </div></div></div></div></div>
+{% endblock %}
+
